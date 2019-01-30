@@ -10,15 +10,15 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(value = "value=test", classes = {SpringBootTestApplication.class}, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class SpringBootTestApplicationTests {
+@SpringBootTest(properties = {"property.value=propertyTest"}, classes = {SpringBootTestApplication.class}, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+public class SpringBootTestApplicationTests2 {
 
-	@Value("${value}")
-	private String value;
+    @Value("${property.value}")
+    private String propertyValue;
 
-	@Test
-	public void contextLoads() {
-		assertThat(value, is("test"));
-	}
+    @Test
+    public void contextLoads() {
+        assertThat(propertyValue, is("propertyTest"));
+    }
 
 }
